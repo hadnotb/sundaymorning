@@ -1,0 +1,50 @@
+<main class="MainContent">
+
+        <section class="MainContent-article Article">
+            <section class="Article-image">
+                <img class="Article-image-img" src="<?php echo(IMAGE_URL . '/' . $article["img"]); ?>" alt="">
+            
+                <figure class="Article-image-vigPic">
+                    <?php for($i = 0 ; $i < 4 ; $i++):?>
+                        <img class='Article-image-vigPic-img' src="<?php echo(IMAGE_VAR_URL . '/' . $images[$i]); ?>" alt="" class="Article-vigPic-img">
+                    <?php endfor ?>
+                </figure>
+            </section>
+            
+
+            
+
+            <section class="Article-info">
+                <small><?=$article['libMarque']?></small>
+                <h4 class="Article-info-nomModel"><?=$article['libModel']?></h4><br>
+
+                <div class="Article-info-couleur">
+                    <h4 class="Article-info-couleur-h2">Couleur</h4>
+                    <div class="Article-info-couleur-container">
+                        <?php foreach($couleur as $couleurItem):?>
+                            <div class="Article-info-couleur-item" style="background:<?= $couleurItem?>; width:25px; height:25px;"></div>
+                        <?php endforeach ?>
+                    </div><br>
+                </div>
+
+                <div class="Article-info-taille">
+                    <h4 class="Article-info-taille-h2">Taille</h4>
+                    <div class="Article-info-taille-container">
+                        <?php foreach($taille as $tailleItem):?>
+                            <p class="Article-info-taille-item"><?= $tailleItem?></p>
+                        <?php endforeach ?>
+                    </div><br><br>
+                </div>
+                <a href="" class="Article-info-addToBasket AddToBasket">Ajouter au panier</a><br><br>
+                      
+                <div class="Article-info-description">
+                    <h4 class="Article-info-description-h2">Description</h4>
+                    <p><?=$article['details']?></p>
+                </div>
+
+                
+
+            </section>
+
+    </section>
+</main>

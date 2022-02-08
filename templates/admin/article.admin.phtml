@@ -1,0 +1,36 @@
+<h2><a href="<?=buildUrl('addArticle')?>">AJOUTER UN ARTICLE</a></h2>
+<div class="Admin-listing">
+        
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <th>Nom du Model de l'article</th>
+                    <th>Taille de l'article</th>
+                    <th>Couleur de l'article</th>
+                    <th>Nombre d'article</th>
+                    <th>Image Associé</th>
+                    
+
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                        
+                <?php foreach($articles as $article):?>
+                    
+                    <tr id='article-<?php $article['idArticle']?>'>
+                        <td><?= $article['libModel']?></td>
+                        <td><?= $article['libTaille']?></td>
+                        <td><?= $article['libCouleur']?></td>
+                        <td><?= $article['nbEle']?></td>
+                        <td><?= $article['img']?></td>
+                        
+                        <td><a href="<?=buildUrl('editArticle',['article_id' => $article['idArticle']])?>"><i class="far fa-edit"></i></a></td>
+                        <td><a class='Delete-button' data-target="article" href="<?=buildUrl('deleteArticle',['article_id' => $article['idArticle']])?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach ?>
+
+            </tbody>
+        </table>
+    </div>

@@ -1,0 +1,13 @@
+<form action="<?=buildUrl('editSize',['size_id'=>$sizeId]);?>" method="post" class="Form">
+    <fieldset class="Form-fieldset">
+        <legend>Modifier une Taille</legend>
+        <div class="form-field">
+            <label for="sizeName" class="Form-field-lib">Taille</label><br>
+            <input type="text" name="sizeName" id="sizeName" class="Form-field-input" value="<?=$size?>">
+        </div>
+        <div class="Form-submit">
+             <input type="submit" value="Modifier" class="Form-button">
+         </div> 
+    
+    </fieldset>
+</form>

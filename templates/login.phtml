@@ -1,0 +1,38 @@
+<Section class="PageLogin"> 
+    <!-- class="PageLogin" -->
+    <div>
+        <?=$msgErr?>
+    </div>
+    <div class="Log-connect Connect">
+        
+        
+            
+            <form action="<?=buildUrl('login');?>" method="POST" class="Form">
+                <fieldset class="Form-fieldset">
+                    <legend class="Form-fieldser-title">Connectez-vous</legend>
+
+                    <div class="Form-field">
+                        <label class ="Form-field-lib" for="mail">Adresse mail</label><br>
+                        <input  class ="Form-field-input" type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="Form-field">
+                        <label class="Form-field-lib" for="password">Mot de passe</label><br>
+                        <input class="Form-field-input" type="password" name="password" id="password"><br>
+                        <a class="Form-field-more" href="">Mot de passe oublié</a>
+                    </div>
+                    <div class="Form-submit">
+                        <input class ="Form-button" type="submit" value="Connectez-vous">
+                    </div>
+
+                    <div class="Form-field Form-redirect">
+                        <p class="Form-redirect-label">Vous n'avez pas encore de compte ?</p><br>
+                        <a class="Form-redirect-button" href="<?=buildUrl('signup');?>">Creer un compte !</a> 
+                    </div>
+                </fieldset>
+                
+            </form>
+        
+    </div>
+    
+</Section>

@@ -1,0 +1,131 @@
+<?php use App\Framework\UserSession; ?>
+<?php use App\Framework\FlashBag;?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunday Morning Aix</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> -->
+    <link rel="stylesheet" href="<?=asset('css/style.css');?>">
+    <link rel="stylesheet" href="<?=asset('css/category.css');?>">
+    <link rel="stylesheet" href="<?=asset('css/login.css');?>">
+    <link rel="stylesheet" href="<?=asset('css/home.css');?>">
+
+</head>
+<body class = "PageWrapper">
+    <header class = 'SiteHeader'>
+        <a href="<?=buildUrl('homepage');?>" class="SiteHeader-logo">
+            <!-- <img src="" alt="" class="SiteHeader-logo-img"> -->
+            <svg id ='main-logo-svg' class="SiteHeader-logo-img" width="332" height="40" viewBox="0 0 332 40" fill="" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36.33 15.3941C35.48 13.3941 34.17 12.3941 32.33 12.3941C30.14 12.3941 28.75 13.5041 28.75 15.4641C28.75 17.5841 30.75 18.1541 33.35 18.8341C36.35 19.6341 39 20.5441 39 24.0041C39 28.3441 36.27 30.3341 32.41 30.3341C28.55 30.3341 25.77 28.3341 25 24.4341L27.33 23.5241C28.04 26.1941 29.57 27.9541 32.41 27.9541C34.82 27.9541 36.5 26.7541 36.5 24.3441C36.5 22.2741 34.97 21.8441 31.99 21.1141C29.17 20.4041 26.25 19.5241 26.25 15.5441C26.25 12.3941 28.44 10.0041 32.33 10.0041C33.6848 9.95552 35.0195 10.3432 36.1374 11.1101C37.2553 11.877 38.0975 12.9826 38.54 14.2641L36.33 15.3941Z" fill="black"/>
+                <path d="M44.36 10.2141H46.86V23.4041C46.8312 24.0188 46.9273 24.6331 47.1427 25.2096C47.3581 25.7862 47.6882 26.3131 48.1131 26.7583C48.538 27.2036 49.0488 27.5581 49.6146 27.8003C50.1805 28.0424 50.7895 28.1673 51.405 28.1673C52.0205 28.1673 52.6295 28.0424 53.1954 27.8003C53.7612 27.5581 54.272 27.2036 54.6969 26.7583C55.1218 26.3131 55.4519 25.7862 55.6673 25.2096C55.8827 24.6331 55.9788 24.0188 55.95 23.4041V10.2141H58.45V23.2141C58.45 25.0825 57.7078 26.8744 56.3866 28.1956C55.0654 29.5168 53.2734 30.259 51.405 30.259C49.5365 30.259 47.7446 29.5168 46.4234 28.1956C45.1022 26.8744 44.36 25.0825 44.36 23.2141V10.2141Z" fill="black"/>
+                <path d="M77.47 10.2141V30.1241H74.74L66.43 14.7941V30.1241H63.93V10.2141H66.65L74.97 25.5441V10.2141H77.47Z" fill="black"/>
+                <path d="M88.46 10.2141C93.63 10.2141 97.29 13.4241 97.29 20.1541C97.29 26.8841 93.63 30.0841 88.46 30.0841H83.46V10.2141H88.46ZM85.93 12.604V27.704H88.2C92.2 27.704 94.62 25.7041 94.62 20.1541C94.62 14.6041 92.15 12.604 88.2 12.604H85.93Z" fill="black"/>
+                <path d="M110.57 10.2141L117.57 30.1241H114.99L113.2 24.8241H105.42L103.63 30.1241H101.07L108.14 10.2141H110.57ZM106.31 22.3941H112.44L109.38 13.454L106.31 22.3941Z" fill="black"/>
+                <path d="M121 10.2141H123.75L128.64 19.7541L133.57 10.2141H136.32L129.94 22.2141V30.0441H127.44V22.2941L121 10.2141Z" fill="black"/>
+                <path d="M159.68 10.23L163.91 21.23L168.14 10.23H170.81V30.1H168.31V15.54L164.85 24.39H162.96L159.5 15.54V30.1H157V10.23H159.68Z" fill="black"/>
+                <path d="M221.11 20.73H217.79V30.1H215.29V10.23H222.29C225.81 10.23 228.14 11.96 228.14 15.48C228.237 16.6985 227.859 17.9072 227.086 18.8538C226.312 19.8004 225.203 20.4117 223.99 20.56L229.93 30.1H226.93L221.11 20.73ZM217.79 12.65V18.35H222.31C224.38 18.35 225.51 17.47 225.51 15.48C225.51 13.49 224.38 12.65 222.31 12.65H217.79Z" fill="black"/>
+                <path d="M247.89 10.23V30.1H245.16L236.84 14.77V30.1H234.35V10.23H237.07L245.39 25.56V10.23H247.89Z" fill="black"/>
+                <path d="M254.39 30.1V27.94H259.19V12.38H254.39V10.23H266.49V12.38H261.68V27.94H266.48V30.1H254.39Z" fill="black"/>
+                <path d="M286.5 10.23V30.1H283.78L275.46 14.77V30.1H272.96V10.23H275.68L284 25.56V10.23H286.5Z" fill="black"/>
+                <path d="M304.53 27.43C304.076 28.353 303.359 29.1209 302.469 29.637C301.579 30.153 300.557 30.3942 299.53 30.33C295.21 30.33 291.53 27.03 291.53 20.16C291.53 13.29 295.25 10 299.74 10C303.66 10 305.98 12.53 306.86 16.05L304.51 16.76C303.63 13.86 302.24 12.38 299.74 12.38C296.36 12.38 294.12 14.74 294.12 20.16C294.12 25.58 296.36 27.94 299.74 27.94C302.46 27.94 303.94 25.94 304.2 22.46H299.68V20.08H306.68V30.08H304.68L304.53 27.43Z" fill="black"/>
+                <path d="M209.53 29.98H207.07C207.12 28.0935 206.792 26.216 206.105 24.4584C205.417 22.7008 204.385 21.0986 203.068 19.7465C201.752 18.3944 200.178 17.3198 198.439 16.586C196.7 15.8522 194.832 15.4742 192.945 15.4742C191.058 15.4742 189.19 15.8522 187.451 16.586C185.712 17.3198 184.138 18.3944 182.822 19.7465C181.505 21.0986 180.473 22.7008 179.785 24.4584C179.098 26.216 178.77 28.0935 178.82 29.98H176.37C176.37 25.5827 178.117 21.3655 181.226 18.2562C184.336 15.1468 188.553 13.4 192.95 13.4C197.347 13.4 201.564 15.1468 204.674 18.2562C207.783 21.3655 209.53 25.5827 209.53 29.98Z" fill="black"/>
+            </svg>
+        </a>
+
+        <section class="SiteHeader-nav">
+            <form action="<?=buildUrl('search');?>" class="SiteHeader-nav-search" method="POST">
+                <!--<button class="Search-button" type="button" onclick ="showSearchBar();"><img id ='magnifying-glass' class='icon-img' src="../img/magnifying-glass.png" alt=""></button>--> 
+                <button class="Search-button" type="button" onclick ="showSearchBar();"><i class="icon-img"></i></button>
+                <div class="Search-bubble">
+                    <input id="searchBar" class="Search-bar" type="search" value="" name="searchBar">
+                    <input type="submit" id="submit-search" class='submit-button' value='Rechercher'>
+                </div>
+            </form>
+
+            <div class="Siteheader-nav-basket Basket">
+                <!--<img id='shopping-cart-logo' class='icon-img' src="../img/shopping-cart.png" alt="">-->
+                <i class="icon-img"></i>
+            </div>
+
+            <div class="SiteHeader-nav-menu">
+
+               <!-- <i class="SiteHeader-nav-menu-bars" id='bars'><img class='icon-img' src="../img/search-option.png" alt=""></i>
+                <i class="SiteHeader-nav-menu-cross" id='times'><img  id='times-icon' class='icon-img' src="../img/next.png" alt=""></i>-->
+                <i class="SiteHeader-nav-menu-bars icon-img" id='bars'></i>
+                <i class="SiteHeader-nav-menu-cross icon-img" id='times'></i>
+
+                <div class="SiteHeader-nav-menu-links" id='SiteHeaderMenu'>
+                    <a href="<?=buildUrl('category');?>" class="SiteHeader-nav-menu-link" id="Menu-link">Catalogue</a>
+                    <a href="<?=buildUrl('shop');?>" class="SiteHeader-nav-menu-link" id="Menu-link">La boutique</a>
+                    <a href="#" class="SiteHeader-nav-menu-link" id="Menu-link">Langue</a>
+                    <?php if (!UserSession::isAuthenticated()): ?>
+                        <a href="<?=buildUrl('login');?>" class="SiteHeader-nav-menu-link" id="Menu-link">Connexion</a>
+                    <?php else: ?>
+                        <a href="<?=buildUrl('logout');?>" class="SiteHeader-nav-menu-link" id="Menu-link">Deconnexion</a>
+                    <?php endif; ?>
+                    <a href="#" class="SiteHeader-nav-menu-link" id="Menu-link">Faq et Réclamation</a>
+                </div>
+            </div>
+        </section>
+        
+    </header>
+<main class = "Layout">
+    <?php include TEMPLATE_DIR . '/' . $template . '.phtml';?>
+
+    <aside>
+            <?php if (App\Framework\FlashBag::hasMessages('error')):?>
+                <?php foreach (App\Framework\FlashBag::fetchMessages('error') as $error):?>
+                    <p class="message error-message"><?=htmlspecialchars($error);?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php if (App\Framework\FlashBag::hasMessages('success')):?> 
+                <?php foreach (App\Framework\FlashBag::fetchMessages('success') as $message):?>
+                    <p class="message success-message"><?=htmlspecialchars($message);?></p>
+                <?php endforeach; ?>
+            
+        </aside>
+</main>
+
+<footer class="SiteFooter">
+    <!--<form class = "SiteFooter-newsLetterForm NewsLetterForm" action="">
+        <label class ="NewsLetterForm-lab" for="newsletter">Newsletter</label>
+        <input class ="NewsLetterForm-input" type="email" name="newsletter" class="newsletter"> #}
+        Trouver comment transfomer utiliser un svg dans un i 
+        <button class ="NewsLetterForm-button" type="submit">TODO ICON</button> 
+    </form>-->
+    <a class ="SiteFooter-a" href="">Livraison et retour</a>
+    <a class ="SiteFooter-a" href="">Mentions Légale</a>
+    <a class ="SiteFooter-a" href="">Conditions générales de ventes</a>
+    <a class ="SiteFooter-a" href="">Paiement Sécurisé</a>
+
+    <div class="SiteFooter-rsx">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-facebook"></i></a>
+    </div>
+
+</footer>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="<?=asset('js/main.js');?>"></script>
+    <script src="<?=asset('js/carousel.js');?>"></script>
+    <script src="<?=asset('js/carousel.js');?>"></script>
+
+
+    
+</body>
+
+
+
+
+</html>

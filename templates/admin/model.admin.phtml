@@ -1,0 +1,36 @@
+<div class="Admin-index-container">
+   <h2 class="Admin-listing-title"><a href="<?= buildUrl('addModel')?>">AJOUTER UN MODELE</a></h2>
+   <div class="Admin-listing">
+            <table class="Admin-listing-table">
+                <thead class="Admin-listing-head">
+                    <tr>
+                        <th>Nom du Produit</th>
+                        <th>Prix du Produit</th>
+                        <th>Description</th>
+                        <th>Thumbnail</th>
+                        <th>Categorie</th>
+                        <th>Marque</th>
+                        <th>Editer</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody class="Admin-listing-body">
+                            <?php ?>
+                    <?php foreach($models as $model):?>
+                        
+                        <tr id='model-<?php print $model['idModel']?>'>
+                            <td data-label="Nom"><?= $model['libModel']?></td>
+                            <td data-label="Prix"><?= $model['prix']?></td>
+                            <td data-label="Details"><?= $model['details']?></td>
+                            <td data-label="image"><img class="model-thumbnail" src="<?=IMAGE_URL . '/' . $model['img'];?>" alt=""></td>
+                            <td data-label="Categorie"><?= $model['libCategorie']?></td>
+                            <td data-label="Marque"><?= $model['libMarque']?></td>
+                            <td data-label="Editer"><a class ='Edit-button'href="<?= buildUrl('editModel',['model_id' =>$model['idModel']])?>"><i class="far fa-edit"></i></a></td>
+                            <td data-label="Supprimer"><a class='Delete-button' data-target="model" href="<?=buildUrl('deleteModel',['model_id' => $model['idModel']])?>"><i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+                        <?php endforeach ?>
+
+                </tbody>
+            </table>
+    </div>
+</div>

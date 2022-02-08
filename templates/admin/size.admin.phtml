@@ -1,0 +1,25 @@
+<div class="Admin-listing-size">
+        <h2><a href="<?=buildUrl('addSize')?>">AJOUTER UNE TAILLE</a></h2>
+    
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <th>libélé de la taille</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                        
+                <?php foreach($sizes as $size):?>
+                    <tr id='size-<?php $size['idTaille']?>'>
+                        <td><?= $size['libTaille']?></td>
+                        <td><a href="<?=buildUrl('editSize',['size_id'=>$size['idTaille']])?>"><i class="far fa-edit"></i></a></td>
+                        <td><a class='Delete-button' data-target="size" href="<?=buildUrl('deleteSize',['size_id' => $size['idTaille']])?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach ?>
+
+            </tbody>
+        </table>
+    </div>
+    

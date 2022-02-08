@@ -1,0 +1,24 @@
+<div class="Admin-listing">
+        <h2><a href="<?=buildUrl('addBrand')?>">AJOUTER UNE MARQUE</a></h2>
+    
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <th>Nom de la Marque</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                <?php foreach($brands as $brand):?>
+                    <tr id='brand-<?php $brand['idMarque']?>'>
+                        <td><?= $brand['libMarque']?></td>
+                        <td><a href="<?=buildUrl('editBrand',['brand_id'=>$brand['idMarque']])?>"><i class="far fa-edit"></i></a></td>
+                        <td><a class='Delete-button' data-target="brand" href="<?=buildUrl('deleteBrand',['brand_id'=>$brand['idMarque']])?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach ?>
+
+            </tbody>
+        </table>
+    </div>
+    

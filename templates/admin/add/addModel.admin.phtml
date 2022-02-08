@@ -1,0 +1,56 @@
+
+<form action="<?=buildUrl('addModel');?>" method="post" enctype="multipart/form-data" class="Form">
+    <fieldset class="Form-fieldset">
+        <legend class="Form-fieldset-title">Ajouter un model</legend>
+        <div class="Form-field">
+            <label for="productName" class="Form-field-lib">Nom du produit</label><br>
+            <input type="text" name="productName" id="productName" class="Form-field-input"><br>
+        </div>
+        <div class="Form-field">
+            <label for="productPrice" class="Form-field-lib">Prix du produit </label><br>
+            <input type="number" name="productPrice" id="productPrice" min="1" max="800" value="" class="Form-field-input">
+        </div>
+        <div class="Form-field">
+            <label for="productDescription" class="Form-field-lib">Description du produit</label><br>
+            <input type="text" name="productDescription" id="productDescription" class="Form-field-input"><br><br>
+        </div>
+        <div class="Form-field Upload" >
+
+            <div class="Upload-title">
+                <p>Telecharger des images</p>
+            </div>
+            <div class="Upload-form">
+                <label for="productThumbnail" class="Form-field-lib">Image du Model</label>
+                <input type="file" id="productThumbnail" name="productThumbnail" accept="image/*" class="Form-button">
+            
+                <label for="productThumbnailVig" class="Form-field-lib">Variations du Model</label>
+                <input type="file" id="productThumbnailVig" name="image[]" multiple class="Form-button" accept="image/*">
+            </div> 
+            
+        </div>
+        <div class="Form-field" >
+            <label for="productCategory" class="Form-field-lib">Catégorie</label><br>
+            <select id="productCategory" name="productCategory" class="Form-field-select" required>
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?=$category['idCategorie'];?>"><?=$category['libCategorie'];?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="Form-field">
+            <label for="productBrand" class="Form-field-lib">Marque</label><br>
+            <select id="productBrand" name="productBrand" class="Form-field-select" required>
+                <?php foreach ($brands as $brand): ?>
+                    <option value="<?=$brand['idMarque'];?>"><?=$brand['libMarque'];?></option>
+                <?php endforeach; ?>
+            </select><br><br>
+        </div>
+        
+         <div class="Form-submit">
+             <input type="submit" value="Ajouter" class="Form-button">
+         </div>                       
+        
+    </fieldset>
+</form>
+
+
+

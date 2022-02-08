@@ -1,0 +1,17 @@
+<section class="Product">
+            <?php if ($products): ?>
+                <?php foreach ($products as $product): ?>
+                    <figure class="Product-figure">
+                        <img class="Product-figure-img" src="<?php echo(IMAGE_URL . '/' . $product["img"]); ?>" alt="">
+                        </img>
+                        <a href="" class="Product-figure-link">Buy</a>
+                        <div class="Product-figure-info">
+                            <h2 class="Product-figure-info-titre"><?= $product['libModel']?><br><?= $product['libMarque']?></h2>
+                            <h2 class="Product-figure-info-prix"><?= $product['prix']?> €</h2>
+                            
+                            <a href="<?=buildUrl('article', ['idArticle' => $product['idModel']])?>">Voir Plus</a>
+                        </div>
+                    </figure>
+                <?php endforeach; ?>
+            <?php endif; ?>
+    </section>

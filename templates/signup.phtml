@@ -1,0 +1,35 @@
+<main class = PageSignup>
+    <div>
+        <?=$msgErr?>
+    </div>
+    <form class="Signup-form Form" action="<?=buildUrl('signup');?>" method="POST">
+        <fieldset class="Form-fieldset">
+            <h2>Créez votre compte</h2>
+            <div class="Form-field">
+                <label class="Form-field-lib" for="firstname">Prénom</label>
+                <input class="Form-field-input" type="text" name="firstname" id="firstname" value="<?=$firstname;?>">
+            </div>
+            <div class="Form-field">
+                <label class="Form-field-lib" for="lastname">Nom</label>
+                <input class="Form-field-input" type="text" name="lastname" id="lastname" value="<?=$lastname;?>">
+            </div>
+            <div class="Form-field">
+
+                <label class="Form-field-lib" for="email">Email</label>
+               
+                <input class="Form-field-input" type="email" name="email" id="email" value="<?=$email;?>">
+                
+            </div>
+            <div class="Form-field">
+                <label class="Form-field-lib" for="password">Mot de passe</label>
+    
+                <input class="Form-field-input" type="password" name="password" id="password">
+            </div>
+            <div class="Form-submit">
+            <input class ="Form-button" type="submit" value="Enregistrer">
+            </div>
+            
+        </fieldset>
+        
+    </form>
+</main>

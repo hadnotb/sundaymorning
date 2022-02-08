@@ -1,0 +1,102 @@
+@import"_variable";
+
+@font-face {
+    font-family: "Apercu";
+    src: url("font/apercu/apercu_regular.ttf") format("truetype");
+    font-weight: 400;
+   }
+  
+   @font-face {
+    font-family: "Apercu";
+    src: url("font/apercu/apercu_bold.ttf") format("truetype");
+    font-weight: 800;
+   }
+  
+   @font-face {
+    font-family: "Apercu";
+    src: url("font/apercu/apercu_regular_italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@import"_nav-admin";
+@import"_admin-index";
+@import"_admin-form";
+@import"_page-category";
+@import"_single-product";
+@import"_home.scss";
+@import"_footer";
+
+// ------------------------------------HEADER----------------------------------
+
+body{
+    position: relative;
+    background-color: $backgroundColor;
+    margin:0;
+    padding: 0;
+    // box-sizing: border-box;
+    font-family: "Apercu";
+    font-weight: 400;
+    color: black;
+    min-height: 100vh;
+    padding-bottom: 40px;
+   
+}
+main{
+    min-height: 100%;
+}
+html{
+    font-size: 100%;
+    // height:100%;
+}
+@import"_header.scss";
+
+
+// div.SiteHeader-nav-menu-links.showMenu{
+//     display:flex;
+//     flex-direction: column;
+// }
+
+// let bars= document.getElementById('bars');
+    // let times=document.getElementById('times');
+    // let menu = document.getElementById('SiteHeaderMenu');
+    // bars.style.display.toggle ='none'
+
+
+
+
+
+.product-thumbnail{
+    width: 70px;
+}
+.model-thumbnail{
+    width: 70px;
+}
+
+@media screen and (min-width : 600px){
+
+    
+
+    .Article{
+        display: flex;
+        flex-wrap: wrap;
+        &-mainPic{
+            width: 35%;
+            &-img{
+                width: 100% ;
+            }
+        }
+        &-vigPic{
+            order: -1;
+            width: 15%;
+            &-img{
+                width: 100%;
+            }
+        }
+        &-info{
+            width: 40%;
+        }
+    }
+    
+    
+}

@@ -1,0 +1,27 @@
+<div class="Admin-listing">
+        <h2><a href="<?=buildUrl('addCategory')?>">AJOUTER UNE CATEGORIE</a></h2>
+    
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <th>Nom de la Categorie</th>
+                    <th>Date de création</th>
+                    <th>Date de modification</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                        
+                <?php foreach($categories as $category):?>
+                    <tr id='category-<?php $category['idCategorie']?>'>
+                        <td><?=$category['libCategorie']?></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="<?=buildUrl('editCategory',['category_id'=>$category['idCategorie']])?>"><i class="far fa-edit"></i></a></td>
+                        <td><a class='Delete-button' data-target="category" href="<?=buildUrl('deleteCategory',['category_id'=>$category['idCategorie']])?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>

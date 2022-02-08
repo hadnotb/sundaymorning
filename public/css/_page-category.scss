@@ -1,0 +1,57 @@
+
+@import"_productOnCategory";
+
+#Category-list{
+    display: none;
+    text-align: center;
+}
+.showCategory{
+    display: block!important;
+}
+#boutonTrier{
+    display: block;
+    margin: 0 auto;
+}
+
+.css-label{cursor : pointer;}  
+.css-checkbox{display:none;}
+.Minus{display: none;}
+.css-checkbox:checked + .css-label .Minus{
+    display: inline-block;
+}
+.css-checkbox:checked + .css-label .Plus{
+      display: none;  
+}
+.inputList{
+    display: none;
+}
+.css-checkbox:checked ~  .inputList{
+    display: block;
+}
+
+
+
+
+@media screen and (min-width : 600px){
+
+    
+
+    #boutonTrier{
+        display: none;
+    }
+
+    #Category-list{
+        display: block;
+        text-align: left;
+    }
+    .PageCategory{
+        display: flex;
+        flex-wrap:nowrap;
+        align-self: flex-start;
+    }
+    .Category-list{
+        min-width: 150px;
+    }
+    
+    
+}

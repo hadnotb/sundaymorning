@@ -1,0 +1,91 @@
+
+<form action="<?=buildUrl('editModel',['model_id' =>$idMod]);?>" method="post" enctype="multipart/form-data" class="Form">
+    <fieldset class="Form-fieldset">
+        <legend>Modifier un model</legend>
+        <div class="form-field">
+            <label for="productName" class="Form-field-lib">Nom du produit</label><br>
+            <input type="text" name="productName" id="productName" class="Form-field-input" value="<?=$productName?>">
+        </div>
+        <div class="form-field">
+            <label for="productPrice" class="Form-field-lib">Prix du produit </label><br>
+            <input type="number" name="productPrice" id="productPrice" class="Form-field-input" min="1" max="800" value="<?=$prix?>">
+        </div>
+        <div class="form-field">
+            <label for="productDescription" class="Form-field-lib">Description du produit</label><br>
+            <input type="text" name="productDescription" id="productDescription" class="Form-field-input" value="<?=$desc?>"><br><br>
+        </div>
+        <div class="Form-field Upload" >
+            <div class="Upload-title">
+                <p>Telecharger des images</p>
+            </div>
+            <div class="Upload-form">
+                <label for="productThumbnail" class="Form-field-lib">Image du Model</label><br>
+                <input type="file" id="productThumbnail" name="productThumbnail" accept="image/*" class="Form-button">
+            
+                <label for="productThumbnailVig" class="Form-field-lib">Variations du Model</label><br>
+                <input type="file" id="productThumbnailVig" name="image[]" multiple class="Form-button" accept="image/*"><br><br>
+            </div> 
+            
+        </div>
+        <div class="form-field">
+            <label for="productCategory" class="Form-field-lib">Catégorie</label><br>
+            <select id="productCategory" name="productCategory" class="Form-field-select" required>
+                <?php foreach ($categories as $category): ?>
+                    <?php $selected = isset($selectedCategory) && $category['idCategorie'] == $idCategorie ? 'selected' : ''; ?>
+                    <option <?=$selected?> value="<?=$category['idCategorie'];?>"><?=$category['libCategorie'];?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="productBrand" class="Form-field-lib">Marque</label><br>
+            <select id="productBrand" name="productBrand" class="Form-field-select" required>
+                <?php foreach ($brands as $brand): ?>
+                    <option value="<?=$brand['idMarque'];?>"><?=$brand['libMarque'];?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="Form-submit">
+             <input type="submit" value="Modifier" class="Form-button">
+         </div> 
+    </fieldset>
+    <fieldset>
+        <legend>Ajouter a la gallerie</legend>
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <th>Image Principale</th>
+                    <th>Image Associé</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                
+                    <tr id='color-<?php $model['idModel']?>'>
+                        
+                        <td><img class="model-thumbnail" src="<?=IMAGE_URL . '/' . $model['img'];?>" alt=""></td>
+                        <td>
+                            <?php foreach($images as $image):?>
+                                <img class="model-thumbnail" src="<?=IMAGE_VAR_URL . '/' . $image['imgPath'];?>" alt="">
+                            <?php endforeach?>
+                        </td>
+                        <td>
+                            <form action="<?=buildUrl('editModel')?>" method="POST">
+                                <label for="files">Select files:</label>
+                                <input type="file" id="image1" name="image[]" multiple><br><br> 
+                                <input id="" type="submit">
+                            </form> 
+                        </td>
+                        <td><a class='Delete-button' data-target="color" href="<?=buildUrl('deleteColor',['color_id' => $color['idCouleur']])?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                
+
+            </tbody>
+        </table>
+    </fieldset>
+</form>
+
+
+<div class="Admin-listing">
+</div>
+

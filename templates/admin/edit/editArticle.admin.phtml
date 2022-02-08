@@ -1,0 +1,40 @@
+<form action="<?=buildUrl('editArticle',['article_id' => $idArticle]);?>" method="post" class="Form">
+    <fieldset class="Form-fieldset">
+        <legend>Ajouter un article </legend>
+        <div class="form-field">
+            <label for="articleModel" class="Form-field-lib">Model</label><br>
+            <select id="articleModel" name="articleModel" class="Form-field-select" required>
+                <?php foreach ($models as $model): ?>
+                    <?php $selected = isset($articleModelId) && $model['idModel'] == $articleModelId ? 'selected' : ''; ?>
+                    <option <?=$selected?> value="<?=$model['idModel'];?>"><?=$model['libModel'];?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="articleColor" class="Form-field-lib">Couleur</label><br>
+            <select id="articleColor" name="articleColor" class="Form-field-select" required>
+                <?php foreach ($colors as $color): ?>
+                    <?php $selected = isset($articleColorId) && $color['idCouleur'] == $articleColorId ? 'selected' : ''; ?>
+                    <option <?=$selected?> value="<?=$color['idCouleur'];?>"><?=$color['libCouleur'];?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="articleSize" class="Form-field-lib">Taille</label><br>
+            <select id="articleSize" name="articleSize" class="Form-field-select" required>
+                <?php foreach ($sizes as $size): ?>
+                    <?php $selected = isset($articleSizeId) && $size['idTaille'] == $articleSizeId ? 'selected' : ''; ?>
+                    <option <?=$selected?> value="<?=$size['idTaille'];?>"><?=$size['libTaille'];?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="articleNombre" class="Form-field-lib">Nombre d'articles</label><br>
+            <input type="number" name="articleNombre" id="articleNombre" min="1" max="800" class="Form-field-input" value="<?=$articleNumber?>">
+        </div>
+        <div class="Form-submit">
+             <input type="submit" value="Modifier" class="Form-button">
+         </div> 
+    </fieldset>
+</form>
+

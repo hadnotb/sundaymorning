@@ -1,0 +1,236 @@
+.SiteHeader{
+    position:relative;
+    z-index: 1;
+    // max-width: 1600px;
+    margin-bottom: 15px;
+    background-color: $firstColor;
+    
+    &-logo{
+        &-img{
+            width: 80vw;
+            display:block;
+            margin: 0 auto;
+            padding: 15px;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &-nav{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        &-search{
+            position: relative;
+            order:3;
+            background-color: $firstColor;
+            & button{
+                padding: 0;
+                margin: 0;
+                border: none;
+                background-color: $firstColor;
+                font-size: x-large;
+                margin-bottom: 10px;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            } 
+        }
+
+        &-basket{
+            position: relative;
+        }
+        
+       
+        &-menu{
+            position:relative;
+            padding: 0;
+            margin: 0;
+            &-bars{
+                font-size: x-large;
+                margin-bottom: 10px;
+                position: relative;
+                left: -1px;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+            
+            &-links{
+                text-align:center;
+            }
+            
+            &-cross{
+                position:absolute;
+                right:50%;
+                display: none;
+            }
+
+            &-link{
+               display: none;
+               text-decoration: none;
+               padding: 15px;
+               color:black;  
+               &:hover{
+                transform: scale(1.1);
+                } 
+            }
+        }
+    }
+}
+
+
+
+.Search-bubble{
+    display: none;
+    height: 40px;
+    position: absolute;
+    right: 2px;
+    bottom: -65px;
+    background-color: black;
+    width: 250px ;
+    border-radius: 5px;
+    &::after{
+        content:'';
+        width: 8px;
+        height: 8px;
+        
+        position: absolute;
+        transform: rotate(45deg);
+        background-color: black;
+        top: -2px;
+        left: 238px;
+        z-index:2;
+    }
+}
+
+.not-hidden{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#times{
+    text-align: center;
+}
+
+.Basket{
+        &-icone{
+        text-decoration: none;
+        color: black;
+        font-size: x-large;
+        margin-bottom: 20px;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.icon-img{
+    width: 25px;
+}
+
+#shopping-cart-logo{
+    position: relative;
+    left:-2px;
+}
+.Search-button{
+    & i{
+        
+        // background-color: black;
+        content: url('../img/magnifying-glass.png');
+        &:hover{
+            content: url('../img/magnifying-glassY.png');
+        }
+        width: 25px;
+    }
+}
+.Basket{
+    & i{
+        content:url('../img/shopping-cart.png');
+    }
+}
+#bars{
+    content: url('../img/search-option.png');
+}
+#times{
+    content: url('../img/next.png');
+}
+
+@media screen and (min-width : 600px){
+
+    .SiteHeader{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: white;
+        position: sticky;
+        top: 0;
+        // box-shadow: -1px 1px 10px -3px rgba(0,0,0,0.2);
+        box-shadow: $lightBoxShadow;
+        &-logo{
+           &-img{
+               width: 250px;
+               &:hover{
+                    path{
+                        fill: #FFE542;;
+                    }
+               }
+           }
+        }
+        &-nav{
+            width: 30%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            &-search{
+                order:-1;
+                background-color: white;
+                & button{
+                    background-color: white;
+                    &:hover{
+                        color:$firstColor;
+                    }
+                }
+                & .icon-img{
+                    background-image: url('../img/magnifying-glass.png');
+                }
+            }
+            
+            &-menu{
+                &-bars{
+                    &:hover{
+                        color:$firstColor;
+                    }
+                }
+                &-cross{
+                    &:hover{
+                        color:$firstColor;
+                    }
+                }
+                
+                &-links{
+                    position:fixed;
+                    top:69px;
+                    right: 0px;
+                    width: 100vw;
+                    background-color: rgb(0, 0, 0);
+                }        
+                &-link{
+                    width: 230px;
+                    color: white;
+                }           
+            }
+        }
+    }
+    #magnifying-glass{
+        position: relative;
+        top: 7px;
+        
+    }
+}

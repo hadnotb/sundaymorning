@@ -1,0 +1,109 @@
+<section class="PageCategory"> 
+    <button id="boutonTrier" onclick="showCategoryList();">Trier</button>
+    <aside id ="Category-list" class ='Category-list'>
+        <h2 class="Category-titles"><a class="Category-titles-link" href="">Nouvelle collection</a></h2>
+    
+        <h2 class="Category-titles"><a class="Category-titles-link" href="">Promotions</a></h2>
+        
+        <section class="Category-titles-cat">
+            <input type="checkbox" name="cat" id="cat" class="css-checkbox">
+            <label for="cat" class="css-label">
+                <h2 class="Category-titles-h2">Categorie
+                <span class="fas fa-plus Plus"></span>
+                <span class="fas fa-minus Minus"></span>
+                </h2>
+                
+            </label>
+            <div class="inputList">
+            <?php foreach($categories as $categorie):?>
+                
+                <h3 class="Category-titles-h3">
+                <a class="Category-titles-h3-link" href="<?=buildUrl('category', ['categorie' => $categorie['idCategorie']])?>"><?= $categorie['libCategorie']?></a>
+                </h3>
+                
+            <?php endforeach ?>
+            </div>
+        </section>
+
+        <section class="Category-titles-brand">
+            <input type="checkbox" name="brand" id="brand" class="css-checkbox">
+            <label for="brand" class="css-label">
+                <h2 class="Category-titles-h2">Marques 
+                <span class="fas fa-plus Plus"></span>
+                <span class="fas fa-minus Minus"></span>
+                </h2>
+                
+            </label>
+            <div class="inputList">
+                <?php foreach($brands as $brand):?>
+                <h3 class="Category-titles-h3">
+                    <a class="Category-titles-h3-link" href="<?=buildUrl('category', ['marque' => $brand['idMarque']])?>"><?= $brand['libMarque']?></a>
+                </h3>
+                <?php endforeach ?>
+            </div>
+        </section>
+
+        <section class="Category-titles-size">
+            <input type="checkbox" name="size" id="size" class="css-checkbox">
+            <label for="size" class="css-label">
+                <h2 class="Category-titles-h2">Tailles
+                <span class="fas fa-plus Plus"></span>
+                <span class="fas fa-minus Minus"></span>
+                </h2>
+                
+            </label>
+            <div class="inputList">
+                <?php foreach($sizes as $size):?>
+                <h3 class="Category-titles-h3">
+                    <a class="Category-titles-h3-link" href="<?=buildUrl('category', ['taille' => $size['idTaille']])?>"><?= $size['libTaille']?></a>
+                </h3>
+                <?php endforeach ?>
+            </div>
+        </section>
+
+        <section class="Category-titles-colors">
+            <input type="checkbox" name="colors" id="colors" class="css-checkbox">
+            <label for="colors" class="css-label">
+                <h2 class="Category-titles-h2">Couleurs 
+                <span class="fas fa-plus Plus"></span>
+                <span class="fas fa-minus Minus"></span>
+                </h2>
+                
+            </label>
+            <div class="inputList">
+                <?php foreach($colors as $color):?>
+                <h3 class="Category-titles-h3">
+                    <a class="Category-titles-h3-link" href="<?=buildUrl('category', ['couleur' => $color['idCouleur']])?>"><?= $color['libCouleur']?></a>
+                </h3>
+                <?php endforeach ?>
+            </div>
+        </section>
+
+    </aside>
+
+    <section class="Product">
+            <?php if ($products): ?>
+                <?php foreach ($products as $product): ?>
+                    
+                    <figure class="Product-figure">
+                        <div class="Product-figure-image">
+                            <img class="Product-figure-image-img" src="<?php echo(IMAGE_URL . '/' . $product["img"]); ?>" alt=""></img>
+                            <a href="<?=buildUrl('article', ['idArticle' => $product['idModel']])?>" class="Product-figure-image-buy" id="buy">Voir plus</a>
+                        </div>
+                        <div class="Product-figure-info">
+                            <div class="Product-figure-infos">
+                                <small class="Product-figure-infos-model"><?= $product['libModel']?></small><br>
+                                <small class="Product-figure-infos-brand"><?= $product['libMarque']?></small>
+                            </div>
+                            <h3 class="Product-figure-prix"><?= $product['prix']?> €</h3>
+                        </div>
+                        
+
+                    </figure>
+                <?php endforeach; ?>
+
+            
+            <?php endif; ?>
+    </section>
+</section>
+   

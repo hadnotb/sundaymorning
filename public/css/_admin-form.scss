@@ -1,0 +1,200 @@
+ .Form{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 20px;
+     
+     &-fieldset{
+
+        background-color: white;
+        box-shadow:2px 2px 2px  rgba(56, 54, 54, 0.37) ;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        border: none;
+        padding: 20px;
+
+        &-title{
+            color: black;
+            width: 100%;
+            text-align: center;
+        }
+     }
+     &-field{
+        padding: 5px;
+        &.Upload{
+            border: 1px solid black;
+            min-height: 100px;
+            
+            display: block;
+            margin: 0 auto;
+            &>div{
+                display: flex;
+                flex-direction: column;
+                label{
+                    
+                    text-align: center;
+                    color: black;
+                    border: none;
+                    border-radius: 50px;
+                    padding: 10px;
+                    font-family:"Apercu";
+                    box-shadow: $firstBoxShadow;
+                    transition: 0.2s;
+                    &:hover{
+                        transform:scale(1.05);
+                    }
+                }
+                .Form-button{
+                    display: none;
+                }
+            }
+
+            &>div>p{
+                font-size: 13px;
+            }
+            &>div:first-child{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+        }
+        &-more{
+            text-decoration: none;
+            font-style: italic;
+            color: black;
+            font-size: .9rem;
+            padding-left: 8px;
+            
+            &:hover{
+                color:$firstColor;
+            }
+        }
+          
+         
+         &-lib{
+             font-size: small;
+             margin: 10px;
+             
+         }
+         &-input{
+            padding-left: 8px;
+            height: 34px;
+            border-radius: 50px;
+            border: 1px solid transparent;
+            border-top: none;
+            border-bottom: 1px solid #DDD;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+
+            //  background-color: $darklightColor;
+            //  padding: 5px;
+            //  border-radius: 50px;
+            //  min-width: 180px;
+            //  border: none;
+            //  height: 20px;
+            //  box-shadow:$lightBoxShadow;
+             transition: 0.2s;
+            &:hover{
+                transform:scale(1.05);
+            }
+         }
+         &-select{
+
+            padding: 5px;
+            height: 34px;
+            border-radius: 50px;
+            border: 1px solid transparent;
+            border-top: none;
+            border-bottom: 1px solid #DDD;
+            box-shadow:  0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+            // background-color: $darklightColor;
+            // padding: 5px;
+            // min-height: 30px;
+            // border-radius: 50px;
+            // min-width: 180px;
+            // border: none;
+            // box-shadow:$lightBoxShadow;
+            transition: 0.2s;
+            &:hover{
+            transform:scale(1.05);
+            }
+         }
+    }
+     &-submit{
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+    }
+     &-button{
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 50px;
+        margin-top: 10px;
+        padding: 10px;
+        font-family:"Apercu";
+        box-shadow: $firstBoxShadow;
+        transition: 0.2s;
+        &:hover{
+            transform:scale(1.05);
+            background: radial-gradient(circle, rgba(255,255,255,1) 1%, rgba(255, 230, 66, 0.712) 71%, rgba(255, 230, 66, 0.644) 100%); ;
+            // color: #fff;
+            box-shadow: 0 0 5px $secondColor,
+              0 0 10px $secondColor,
+              0 0 20px $secondColor,
+              0 0 40px $secondColor;
+        }
+        
+    }
+ }
+ #articleNombre{
+     padding-left: 8px;
+ }
+ .Form-redirect{
+    border-top: dotted black 1px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-label{
+        font-size: .9rem;
+    }
+    &-button{
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color: $firstColor;
+        }
+    }
+    
+ }
+ @media screen and (min-width : 400px){
+    .Form{
+        &-field{
+            &-input{
+                min-width: 250px;
+            }
+            &-select{
+                min-width: 260px;
+
+            }
+            &.Upload{
+                width:250px;
+                &>div{
+                    // display: inline-block;
+                }
+            }
+        }
+    }
+
+ }
+
+
+

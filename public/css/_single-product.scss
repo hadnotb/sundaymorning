@@ -1,0 +1,138 @@
+// .Article{
+//     &-image{
+        
+//         &-mainPic{
+//             margin: 0 auto;
+//             width: 90vw;
+//             &-img{
+//                 width: 100%;
+//             }
+//         }
+//         // &-vigPic{
+//         //     width:  ;
+//         // }
+
+//     }
+// }
+.Article{
+    width: 80vw;
+    margin: 0 auto;
+    &-image{
+        width: 100%;
+            &-img{
+                display: block;
+                margin: 0 auto;
+                width: 250px;
+                height: 350px;
+                margin-bottom: 5px;
+            }
+        
+        &-vigPic{
+            margin: 0 auto;
+            padding: 0;
+            width: 250px;
+            &-img{
+                margin: 0 auto;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+    }
+    
+    &-info{
+        
+        width: 250px;
+        margin: 0 auto;
+        
+        &-nomModel{
+            margin: 0;
+        }
+        &-couleur{
+            &-h2{
+                margin: 0;
+            }
+            &-container{
+                width: 100%;
+                
+            }
+            &-item{
+                display: inline-block;
+            }
+            
+        }
+        &-taille{
+            &-h2{
+                margin: 0;
+            }
+            &-container{
+                display: inline-block;
+            }
+            &-item{
+                margin: 0;
+                display: inline-block;
+            }
+        }
+        &-addToBasket{
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            
+        }
+        &-description{
+            &-h2{
+                margin: 0;
+                
+            }
+            &>p{
+                margin: 0;
+            }
+        }
+    }
+}
+@media screen and (min-width : 600px){
+
+    
+
+    .Article{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        &-image{
+            width: 50%;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            &-img{
+                width: 300px;
+                order: 2;
+                
+            }
+            &-vigPic{
+                
+                width: 60px;
+                display: flex;
+                flex-direction: column;
+                
+            }
+        }
+        &-mainPic{
+            width: 35%;
+            &-img{
+                width: 100% ;
+            }
+        }
+        &-vigPic{
+            order: -1;
+            width: 15%;
+            &-img{
+                width: 100%;
+            }
+        }
+        &-info{
+            width: 40%;
+        }
+    }
+    
+    
+}

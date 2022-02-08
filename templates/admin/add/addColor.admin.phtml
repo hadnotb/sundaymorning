@@ -1,0 +1,31 @@
+<div class="Admin">
+    <form action="<?=buildUrl('addColor');?>" method="post" class="Form">
+        <fieldset class="Form-fieldset">
+            <legend>Ajouter Une Couleur</legend>
+            <div class="Form-field">
+                <label for="colorName" class="Form-field-lib">Nom de la Couleur</label><br>
+                <input type="text" name="colorName" id="colorName" class="Form-field-input">
+            </div>
+            <div class="Form-submit">
+                <input type="submit" value="Ajouter" class="Form-button">
+            </div>     
+        </fieldset>
+    </form>
+
+    <div class="Admin-listing">
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <td>Libélé de la Categorie</td>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                <?php foreach($colors as $color):?>
+                    <tr id='brand-<?php $color['idCouleur']?>'>
+                        <td><?= $color['libCouleur']?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</div>

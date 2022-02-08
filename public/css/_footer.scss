@@ -1,0 +1,28 @@
+.SiteFooter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 30px;
+    background-color: white;
+    box-shadow: $lightTopBoxShadow;
+    margin-top:20px;
+    margin-bottom: 0px;
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    
+    &-a{
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color:$firstColor;
+        }
+    }
+    &-rsx{
+        & i{
+            color: black;
+            font-size: 1.3rem;
+            padding-right: 10px ;
+        }
+    }
+}

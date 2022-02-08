@@ -1,0 +1,32 @@
+@import"_carousel.scss";
+
+.HomeNav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    &-link{
+        margin: 20px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: black;
+        transition: 0.2s ease-in-out;
+
+        &:hover{
+            color: $firstColor;
+        }
+       
+          
+      
+    }
+}
+.ForYou{
+    display: flex;
+    width: 400px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: dotted 1px black;
+}

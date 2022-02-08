@@ -1,0 +1,31 @@
+<div class="Admin"> 
+    
+    <form action="<?=buildUrl('addCategory');?>" method="post" class="Form">
+        <fieldset class="Form-fieldset">
+            <legend>Ajouter une Categorie</legend>
+            <div class="Form-field">
+                <label for="categoryName" class="Form-field-lib">Nom de la Catégorie</label><br>
+                <input type="text" name="categoryName" id="categoryName" class="Form-field-input">
+            </div>
+            <div class="Form-submit">
+                <input type="submit" value="Ajouter" class="Form-button">
+            </div>          
+        </fieldset>
+    </form>
+    <div class="Admin-listing">
+        <table class="Admin-listing-table">
+            <thead class="Admin-listing-head">
+                <tr>
+                    <td>Libélé de la Categorie</td>
+                </tr>
+            </thead>
+            <tbody class="Admin-listing-body">
+                <?php foreach($cats as $cat):?>
+                    <tr id='brand-<?php $cat['idCategorie']?>'>
+                        <td><?= $cat['libCategorie']?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</div>

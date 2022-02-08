@@ -1,0 +1,15 @@
+<form action="<?=buildUrl('editCategory',['category_id' => $categoryId]);?>" method="post" class="Form">
+    <fieldset  class="Form-fieldset">
+        <legend>Modifer une Categorie</legend>
+        <div class="form-field">
+            <label for="categoryName" class="Form-field-lib">Nom de la Catégorie</label><br>
+            <input type="text" name="categoryName" id="categoryName" class="Form-field-input" value='<?=$cat['libCategorie']?>'>
+        </div>
+        <div class="Form-submit">
+             <input type="submit" value="Modifier" class="Form-button">
+         </div> 
+        
+    </fieldset>
+</form>
+
+
